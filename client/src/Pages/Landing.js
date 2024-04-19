@@ -26,7 +26,7 @@ const Landing = () => {
     const [taskAdded, setTaskAdded] = useState(false)
     const [taskDeleted, setTaskDeleted] = useState(false)
     const loadTodos = async () => {
-        const response = await axios.get('http://localhost:4000/todo/gettodos', {
+        const response = await axios.get('https://to-do-app-backend-eight.vercel.app/todo/gettodos', {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
         })
         const { todos, username } = await response.data
@@ -45,7 +45,7 @@ const Landing = () => {
 
     const handleTaskToggle = async (todoId, taskName) => {
         try {
-            const response = await axios.put(`http://localhost:4000/todo/updatetask/${todoId}`, {
+            const response = await axios.put(`https://to-do-app-backend-eight.vercel.app/todo/updatetask/${todoId}`, {
                 taskName: taskName.name,
                 completed: true
             },{
@@ -71,7 +71,7 @@ const Landing = () => {
                 title: todo,
                 createdAt: Date.now()
             }
-            const res = await axios.post('http://localhost:4000/todo/createtodo', data, {
+            const res = await axios.post('https://to-do-app-backend-eight.vercel.app/todo/createtodo', data, {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             })
             const response = await res.data
@@ -114,7 +114,7 @@ const Landing = () => {
     }
     const handleDelete = async (id) => {
         try {
-            const res = await axios.delete(`http://localhost:4000/todo/deletetodo/${id}`, {
+            const res = await axios.delete(`https://to-do-app-backend-eight.vercel.app/todo/deletetodo/${id}`, {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             })
             const response = await res.data
@@ -159,7 +159,7 @@ const Landing = () => {
         try {
             const newtodo = window.prompt('Enter new Todo')
             settodo(newtodo)
-            const res = await axios.put(`http://localhost:4000/todo/edittodo/${id}`, {
+            const res = await axios.put(`https://to-do-app-backend-eight.vercel.app/todo/edittodo/${id}`, {
                 "title": newtodo
             }, {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
@@ -212,7 +212,7 @@ const Landing = () => {
                 completed: false // Default value for completed status
             };
     
-            const res = await axios.post(`http://localhost:4000/todo/createtask/${taskid}`, { task: taskData }, {
+            const res = await axios.post(`https://to-do-app-backend-eight.vercel.app/todo/createtask/${taskid}`, { task: taskData }, {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             });
     
@@ -260,7 +260,7 @@ const Landing = () => {
     };
     const handleTaskClick = async (id) => {
 
-        const res = await axios.get(`http://localhost:4000/todo/gettodo/${id}`, {
+        const res = await axios.get(`https://to-do-app-backend-eight.vercel.app/todo/gettodo/${id}`, {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
         })
         settasks(res.data.todo.tasks)
@@ -277,7 +277,7 @@ const Landing = () => {
             // Extracting the task ID from the DOM based on your HTML structure
             // const taskId = e.target.parentNode.parentNode.dataset.taskId;
     
-            const res = await axios.delete(`http://localhost:4000/todo/deletetask/${todoid}`, {
+            const res = await axios.delete(`https://to-do-app-backend-eight.vercel.app/todo/deletetask/${todoid}`, {
                 data: { taskId }, // Sending taskId in the request body instead of taskString
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             });
@@ -324,7 +324,7 @@ const Landing = () => {
         }
     };
     const sort = async (n) => {
-        const response = await axios.get('http://localhost:4000/todo/sortTodo', {
+        const response = await axios.get('https://to-do-app-backend-eight.vercel.app/todo/sortTodo', {
             params: { order: n },
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
         })

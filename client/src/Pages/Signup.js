@@ -24,7 +24,7 @@ const Signup = () => {
     }
     const submitdata = async () => {
         try {
-            const res = await axios.post('http://localhost:4000/user/signup', cred)
+            const res = await axios.post('https://to-do-app-backend-eight.vercel.app/user/signup', cred)
             console.log("rrs-->",res);
             const response = res.data
             console.log(response);

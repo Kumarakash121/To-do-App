@@ -21,7 +21,7 @@ const Login = () => {
     }
     const submitdata = async () => {
         try {
-            const res = await axios.post('http://localhost:4000/user/login', cred)
+            const res = await axios.post('https://to-do-app-backend-eight.vercel.app/user/login', cred)
             const response = await res.data
             if (response.success) {
                 localStorage.setItem("token", response.token)
