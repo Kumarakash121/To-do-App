@@ -4,7 +4,7 @@ import cors from "cors";
 connectDB()
 app.use(cors({
     origin:["https://to-do-app-frontend-liart.vercel.app"],
-    methods:["POST","GET","PUT","DELETE"],
+    methods:["POST","GET"],
     credentials:true,
 }));
 app.listen(4000, () => {
