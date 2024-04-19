@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser'
 import cors from 'cors'
 const app = express()
 app.use(cors(({
-    origin:["https://to-do-app-frontend-liart.vercel.app/"],
+    origin:["https://to-do-app-frontend-liart.vercel.app"],
     methods:["POST","GET","PUT","DELETE"],
     credentials:true,
 })));
