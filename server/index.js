@@ -21,7 +21,7 @@ connectDB()
 
 const options = [
   cors({
-    origin: '*',
+    origin: 'https://to-do-app-frontend-liart.vercel.app',
     methods: '*',
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
