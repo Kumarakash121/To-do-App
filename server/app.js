@@ -10,16 +10,16 @@ const app = express()
 // //     methods:["POST","GET","PUT","DELETE"],
 // //     credentials:true,
 // // })));
-const corsOpts = {
-    origin: 'https://to-do-app-frontend-liart.vercel.app',
-  
-    methods: [
-      'GET',
-      'POST',
-    ],
-
-  };
-  app.use(cors(corsOpts));
+const allowedOrigins = ['https://to-do-app-frontend-liart.vercel.app'];
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
