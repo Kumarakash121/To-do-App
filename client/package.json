@@ -5,7 +5,7 @@
       "localhost",
       ".localhost"
     ],
-    "proxy": "http://localhost:4000/"
+    "proxy": "https://to-do-app-backend-eight.vercel.app/"
   },
   "version": "0.1.0",
   "private": true,
