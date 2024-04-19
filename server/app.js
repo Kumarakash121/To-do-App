@@ -5,21 +5,11 @@ import express from "express";
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 const app = express()
-// // app.use(cors(({
-// //     origin:["https://to-do-app-frontend-liart.vercel.app"],
-// //     methods:["POST","GET","PUT","DELETE"],
-// //     credentials:true,
-// // })));
-const allowedOrigins = ['https://to-do-app-frontend-liart.vercel.app'];
+
 app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-}));
+    origin:"https://to-do-app-frontend-liart.vercel.app",
+    credentials:true,
+}))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
