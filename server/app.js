@@ -10,26 +10,17 @@ const app = express()
 // //     methods:["POST","GET","PUT","DELETE"],
 // //     credentials:true,
 // // })));
-// const corsOpts = {
-//     origin: '*',
+const corsOpts = {
+    origin: 'https://to-do-app-frontend-liart.vercel.app',
   
-//     methods: [
-//       'GET',
-//       'POST',
-//     ],
-  
-//     allowedHeaders: [
-//       'Content-Type',
-//     ],
-//   };
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-});
-// app.use(cors(corsOpts));
+    methods: [
+      'GET',
+      'POST',
+    ],
+
+  };
+  app.use(cors(corsOpts));
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
